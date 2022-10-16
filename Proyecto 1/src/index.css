@@ -4,9 +4,11 @@ body {
     sans-serif;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
