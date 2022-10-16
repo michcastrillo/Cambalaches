@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
+    border: 1px;
 }
 
 code {
