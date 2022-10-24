@@ -1,0 +1,55 @@
+body{
+    background-color: brown;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr minmax(200px,400px) 1fr;
+    grid-template-rows: 1fr minmax(auto,1fr) 1fr;
+    width: 100%;
+    height: 100vh;
+}
+
+form {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-gap: 10px;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    box-shadow: black;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+}
+
+fieldset {
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: black;
+}
+         
+p {
+    padding-bottom: 2px;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 320px;
+}
+
+button {
+    padding: 10px;
+    border:1px solid rgba(0,0,0,0);
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: black; 
+}
+  
