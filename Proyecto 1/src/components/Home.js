@@ -1,10 +1,14 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react'
+import { Navigate, useParams } from 'react-router-dom';
 import NavHome from './NavHome.js'
 import ProductHome from './HomeProducts';
+import { AuthContext } from '../context/AuthContext.js';
+
 const Home = () => {
   const {userid}= useParams();
+  const { isLogin } = useContext(AuthContext);
+  console.log(userid, isLogin) 
   const[nameUser, setNameUser] = useState([]);
   const [cartUser, setCartUser] = useState([]);
   const [products, setProducts] = useState([]);
@@ -37,7 +41,9 @@ const Home = () => {
     <div>
       <NavHome nameUser={welcomeMsj}/>
       {
-      products.map(item=>(<ProductHome key={Math.random()*1000} images={item.images[0]} title={item.title}/>))
+        isLogin == userid
+        ?products.map(item=>(<ProductHome key={Math.random()*1000} images={item.images[0]} title={item.title}/>))
+        :<Navigate to="/login"/>
       }
     </div>
   )

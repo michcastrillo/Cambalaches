@@ -43,7 +43,7 @@ const Login = () => {
         });
         if(resValidate === true){
             navi(`/home/${idUser}`);
-            console.log("a",idUser)
+            sessionStorage.setItem('authUser', JSON.stringify(idUser));
         }
         if(resValidate === false){
             console.log("usuario no encontrado");

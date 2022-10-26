@@ -3,6 +3,9 @@ import { Component } from 'react';
 
 const NavHome = ({nameUser}) => {
   const {userid}= useParams();
+
+  const handleClick = (e) => sessionStorage.removeItem("authUser");
+
   return (
     <div>
       <header>
@@ -11,7 +14,7 @@ const NavHome = ({nameUser}) => {
         <div className='conte-left'>
           <ul>
             <li>
-            <Link to="/" className='Link'>Logout</Link>
+            <Link to={'/login'} onClick={handleClick} className='Link'>Logout</Link>
             </li>
             <li>
             <Link to={`/cart/${userid}`} className='Link'>My cart</Link>
