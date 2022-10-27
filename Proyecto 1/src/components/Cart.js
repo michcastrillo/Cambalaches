@@ -1,16 +1,21 @@
-
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import {Navigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import ProductCart from './ProductCart';
+import CartTotal from './CartTotal';
+import NavHome from './NavHome.js';
 
 const Cart = () => {
   const {userid}= useParams();
   const { isLogin } = useContext(AuthContext);
   console.log(isLogin)
   console.log(userid)
-  const [product, setProducts] = useState([]);
+  const [cartUser, setCartUser] = useState([]);
 
+  useEffect(()=>{
+    axios.get(`https://dummyjson.com/carts/user/${userid}`).then(res=>setCartUser(res.data.carts)).catch(err=>console.error("Error escrito"));
+  },[]);
   // useEffect(()=>{
   //   //Obtiene solo los productos seccion
   //   const getCart = () => {
@@ -32,11 +37,17 @@ const Cart = () => {
 
   return (
     <div>
+      <NavHome nameUser=""/>
+      <h2>My cart</h2>
       {/* Pinta los productos */}
       {
       isLogin == userid
-      ? product.map(ele=>(<ProductCart key={Math.random()*1000} title={ele.title} price={ele.price}/>))
-      :<Navigate to={'/login'}/>
+      ? 
+      cartUser.map(item=>(item.products.map(it=>(<ProductCart key={Math.random()*1000} title={it.title} price={it.price}/>))))
+      :(isLogin == userid)?
+      cartUser.map(items=>(<CartTotal key={Math.random()*1000} total={items.total} disscount={items.discountedTotal}/>))
+      :
+      <Navigate to={'/login'}/>
       }
 
     </div>

@@ -6,6 +6,14 @@ const NavHome = ({nameUser}) => {
 
   const handleClick = (e) => sessionStorage.removeItem("authUser");
 
+  function links(){
+    if(nameUser===""){
+      return <Link to={`/home/${userid}`} className='Link'>Home</Link>;
+    }else{
+      return <Link to={`/cart/${userid}`} className='Link'>My cart</Link>;
+    }
+  }
+  
   return (
     <div>
       <header>
@@ -17,7 +25,7 @@ const NavHome = ({nameUser}) => {
             <Link to={'/login'} onClick={handleClick} className='Link'>Logout</Link>
             </li>
             <li>
-            <Link to={`/cart/${userid}`} className='Link'>My cart</Link>
+              {links()}
             </li>
           </ul>
         </div>
