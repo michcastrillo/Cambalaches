@@ -9,19 +9,20 @@ const inicialUser = {
 };
 //Id user
 const Login = () => {
-    const navi = useNavigate();
+    const navigate = useNavigate();
     //login
     const [loginUser, setLoginUser] = useState(inicialUser);
     //Data user
     const [dataUser, setDataUser] = useState([]);
     //variables
     let resValidate = false;
-    let idUser = "";
-    console.log(navi)
+    let idUser = 0;
+    // console.log(navi)
 
     useEffect(()=>{
         axios.get("https://dummyjson.com/users").then(res=>setDataUser(res.data.users)).catch(err=>console.error("Error escrito"));
     },[]);
+
     
     //Inputs
     const handleChange = (e) => {
@@ -31,19 +32,36 @@ const Login = () => {
         });
     };
 
-    const  handleSubmit = (e)=> {
-        e.preventDefault();
+    const  handleSubmit = (e) => {
+        // e.preventDefault();
         console.log(2)
         console.log(dataUser.length)
         dataUser.forEach((ele) => {
             if((loginUser.mail===ele.email) && (loginUser.pass === ele.password)){
-                resValidate = true;
                 idUser = ele.id;
+                sessionStorage.setItem('authUser', JSON.stringify(idUser));
+                if(idUser !== 0){
+                    sessionStorage.setItem("productosCart", JSON.stringify([]));
+                    sessionStorage.setItem("productosHome", JSON.stringify([]));
+                    console.log("uno");
+                    resValidate = true;
+                }
+                // idUser = ele.id;
+                // sessionStorage.setItem('authUser', JSON.stringify(idUser));
+                // resValidate = true;
+                // idUser = ele.id;
+                // console.log(idUser);
+                // sessionStorage.setItem('authUser', JSON.stringify(idUser));
+                // sessionStorage.setItem("productosCart", JSON.stringify([]));
+                // sessionStorage.setItem("productosHome", JSON.stringify([]));
+                // console.log(10, idUser)
+              
             }
         });
         if(resValidate === true){
-            navi(`/home/${idUser}`);
-            sessionStorage.setItem('authUser', JSON.stringify(idUser));
+            console.log("dos")
+            navigate(`/home/${idUser}`);
+            console.log(11, idUser)
         }
         if(resValidate === false){
             console.log("usuario no encontrado");
