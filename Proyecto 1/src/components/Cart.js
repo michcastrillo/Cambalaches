@@ -55,10 +55,25 @@ const Cart = () => {
 
   // console.log(product)
 
-
+  const handle = (e) => {
+    let testArray = {};
+    testArray= JSON.parse(sessionStorage.getItem("productosCart"));
+    if(testArray){
+      Object.keys(testArray).forEach(function(key) {
+        if(testArray[key] != null){
+            delete testArray[key]
+            console.log(testArray);
+        }
+      });
+      sessionStorage.removeItem("productosCart")
+      sessionStorage.setItem('productosCart', JSON.stringify(testArray));
+    }
+    window.location.reload();
+  }
   return (
     <div>
       <NavHome nameUser=""/>
+      <button onClick={handle}>Limpiar carrito</button>
       <h2>My cart</h2>
       <p>{`Precio del cart: ${Math.round(precioCart)}`}</p>
       {/* Pinta los productos */}
