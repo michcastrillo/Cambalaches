@@ -1,7 +1,25 @@
-body{
-    background-color: brown;
+
+ul {
+    list-style: none;
+}
+li{
+    display: inline-block;
+    margin-right: 2pc;
+    border: 4px solid rgba(255,255,255,0.9);
+    border-radius: 5px;
+    padding: 7px;
 }
 
+body{
+    background-color: #E6E6FA;
+    border: none;
+
+}
+h1{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 3em;
+    color: #708090;
+}
 .wrapper{
     display: grid;
     grid-template-columns: 1fr minmax(200px,400px) 1fr;
@@ -19,14 +37,18 @@ form {
     background-color: rgba(255,255,255,0.9);
     border-radius: 10px;
     box-shadow: black;
+    margin-top: 90px;
 }
 
 h2 {
     text-align: center;
     font-size: 30px;
     font-weight: 100;
+    margin-bottom: 5px;
 }
-
+.user_p{
+    font-family: "Lucida Console", "Courier New", monospace;
+}
 fieldset {
     background-color: #fff;
     border: none;
@@ -47,7 +69,7 @@ input {
 
 button {
     padding: 10px;
-    border:1px solid rgba(0,0,0,0);
+    border:2px solid #E6E6FA;
     border-radius: 5px;
     background: #fff;
     box-shadow: black; 

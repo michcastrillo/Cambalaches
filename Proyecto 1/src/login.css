@@ -1,5 +1,5 @@
 body{
-    background-color: brown;
+    background-color: #E6E6FA;
 }
 
 .wrapper{
@@ -19,6 +19,7 @@ form {
     background-color: rgba(255,255,255,0.9);
     border-radius: 10px;
     box-shadow: black;
+    margin-top: 90px;
 }
 
 h2 {

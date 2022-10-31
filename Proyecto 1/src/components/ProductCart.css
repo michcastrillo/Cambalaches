@@ -1,4 +1,12 @@
 .conte-card {
     border: 1px solid black;
     margin: 1rem;
+    width: 341px;
+    height: 248px;
+    display: inline-block;
+}
+
+h3{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
 }

@@ -26,9 +26,8 @@ const Cart = () => {
     const pro = JSON.parse(sessionStorage.getItem("productosCart"));
      let precio = 0;
     if(pro){
-      pro.map(element => {
-            precio = precio + element.totalConDes;
-        });
+      pro.map(element => (element!=null?
+            precio = precio + element.totalConDes:console.log('precio no encontrado')));
         setPrecioCart(precio);
     }
 },[precioCart])
@@ -64,10 +63,11 @@ const Cart = () => {
       <p>{`Precio del cart: ${Math.round(precioCart)}`}</p>
       {/* Pinta los productos */}
       {
-         isLogin == userid
-         ? getProduct.map(element =><ProductCart key={Math.random()*1000} title={element.nomProducto} 
-         price={element.precioUni} priceD={element.totalConDes} id={element.id}/>)
-         : <h2>No hay productos</h2>
+        (isLogin == userid)?
+          getProduct.map(element =>(element!=null?<ProductCart key={Math.random()*1000} title={element.nomProducto} 
+          price={element.precioUni} priceD={element.totalConDes} id={element.id}/>:console.log('producto no encontrado')))
+       :
+          <h2>No hay productos</h2>
       }
 
 

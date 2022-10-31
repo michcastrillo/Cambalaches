@@ -10,7 +10,7 @@ const useAuth =() => {
 const inicial = JSON.parse(sessionStorage.getItem('authUser'));
 
 const AuthProvider = ( {children} ) => {
-    const [isLogin, setIsLogin] = useState(inicial);
+    const [isLogin, setIsLogin] = useState(JSON.parse(sessionStorage.getItem('authUser')));
 
     const Auth = () => {
         if(isLogin !== " "){

@@ -4,12 +4,13 @@ import Home from './Home';
 import Login from './Login';
 import { AuthProvider } from '../context/AuthContext';
 
+
 const AppRouter = () => {
 
 
   return (
-    <div>
-        <h1>Router Principal</h1>
+    <div>  
+        <h1>Cambalaches</h1>
         <BrowserRouter>
         <Routes>
         <Route exact path='/login' element={<Login/>}/>

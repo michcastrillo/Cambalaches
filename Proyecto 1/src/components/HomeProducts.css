@@ -4,14 +4,21 @@ img{
 }
 figure {
     display: inline-block;
+   
+}
+figure img{
+     border-radius: 5px;
 }
 figcaption {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 figcaption p{
-    color: white;
+    color: #708090;
     margin: 0;
+    padding-bottom: 2px;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 

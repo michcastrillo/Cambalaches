@@ -56,7 +56,7 @@ const NavHome = ({nameUser}) => {
     <div>
       <header>
         {/* Nombre del usuario */}
-        <p>{nameUser}</p>
+        <p className='user_p'>{nameUser}</p>
         <div className='conte-left'>
           <ul>
             <li>
