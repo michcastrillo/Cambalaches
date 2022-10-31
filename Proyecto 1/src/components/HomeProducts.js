@@ -3,13 +3,8 @@ import { precioDesUnitario,precioDesTotal, total, totalDescuento} from '../opera
 
 const ProductHome = ({images,title, id, idE}) => {
 
-
-
-
-  const getProduct = JSON.parse(sessionStorage.getItem("productosCart"));
-
-
   const handleChange = (e) => {
+    const oldProduct = JSON.parse(sessionStorage.getItem("productosCart"));
     console.log(id);
     let obj = {}
     id.map(ele => {
@@ -31,11 +26,11 @@ const ProductHome = ({images,title, id, idE}) => {
         totalConDes: totalDescuento(1,obj.discountPercentage, obj.price),
       }
       // setProdu(produc.push(objProducto))
-      if(getProduct){
-        getProduct.push(objProducto)
+      if(oldProduct){
+        oldProduct.push(objProducto)
       }
     }
-    sessionStorage.setItem("productosCart", JSON.stringify(getProduct));
+    sessionStorage.setItem("productosCart", JSON.stringify(oldProduct));
     window.alert("Se agrego un producto")
   }
 
