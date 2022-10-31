@@ -3,25 +3,14 @@ import { precioDesUnitario,precioDesTotal, total, totalDescuento} from '../opera
 
 const ProductHome = ({images,title, id, idE}) => {
 
-  // const [consulProducto, setConsulProduct] = useState([]);
-  // const [prueba, setPrueba] = useState(0);
 
-  // useEffect(()=> {
-  //   axios.get(`https://dummyjson.com/products/${id}`)
-  //   .then(res=>setConsulProduct(res.data))
-  //   .catch(err=>console.error("Error escrito"));
-  // },[])
-
-  //Calculos para cada producto
 
 
   const getProduct = JSON.parse(sessionStorage.getItem("productosCart"));
 
 
-  // const [siu, setSiu] = useState({});
-  // const [bd, setbd] = useState([]);
-
   const handleChange = (e) => {
+    console.log(id);
     let obj = {}
     id.map(ele => {
       if(ele.id == idE)
