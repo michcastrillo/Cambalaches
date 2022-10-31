@@ -11,9 +11,11 @@ const ProductCart = ({title, price, priceD, id}) => {
       testArray= JSON.parse(sessionStorage.getItem("productosCart"));
       if(testArray){
         Object.keys(testArray).forEach(function(key) {
-          if(testArray[key].id === id){
-            delete testArray[key]
-              console.log(testArray);
+          if(id != null && testArray[key] != null){
+            if(testArray[key].id === id){
+              delete testArray[key]
+                console.log(testArray);
+            }
           }
         });
         sessionStorage.removeItem("productosCart")
